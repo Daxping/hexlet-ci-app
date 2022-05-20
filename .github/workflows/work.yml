@@ -12,3 +12,12 @@ jobs:
         run: make test
       - name: lint
         run: make lint
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Run Snyk to check for vulnerabilities
+        with: Snyk_Token ${{secrets.Snyk_Token}}
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.Snyk_Token }}
