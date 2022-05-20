@@ -17,7 +17,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Run Snyk
-        with: SNYK_TOKEN ${{secrets.SNYK_TOKEN}}
         uses: snyk/actions/node@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
